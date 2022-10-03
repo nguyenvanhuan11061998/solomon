@@ -14,5 +14,6 @@
     "password": "Password",
     "guest": "Guest",
     "login": "Login",
-    "sign_up": "Sign up"
+    "sign_up": "Sign up",
+    "add": "add"
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/ui/pages/authentication/sign_up/sign_up_page.dart';
 import 'package:flutter_application/utils/navigator_support.dart';
 
 import '../pages.dart';
-import 'edit_profile/sign_up_page.dart';
 
 class AuthenticationNavigator extends StatefulWidget {
   const AuthenticationNavigator({Key? key}) : super(key: key);

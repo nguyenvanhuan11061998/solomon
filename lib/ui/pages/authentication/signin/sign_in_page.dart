@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/lib.dart';
 import 'package:flutter_application/ui/blocs/auth/auth.dart';
-import 'package:flutter_application/ui/pages/authentication/edit_profile/sign_up_page.dart';
 import 'package:flutter_application/ui/widgets/app_text_form_field.dart';
 import 'package:flutter_application/utils/app_constants.dart';
 import 'package:flutter_application/utils/color.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../../../generated/l10n.dart';
+import '../sign_up/sign_up_page.dart';
 
 class SignInPage extends StatefulWidget {
   static const String path = 'sign_in_page';
