@@ -15,5 +15,6 @@
     "guest": "Guest",
     "login": "Login",
     "sign_up": "Sign up",
-    "add": "add"
+    "add": "add",
+    "next": "Next"
 }

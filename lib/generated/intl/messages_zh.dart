@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "home_page": MessageLookupByLibrary.simpleMessage("Home Page"),
         "id": MessageLookupByLibrary.simpleMessage("ID"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "next": MessageLookupByLibrary.simpleMessage("Next"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "purpose": MessageLookupByLibrary.simpleMessage("Purpose?"),
         "sample": MessageLookupByLibrary.simpleMessage("Sample?"),

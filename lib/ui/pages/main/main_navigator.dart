@@ -3,6 +3,7 @@ import 'package:flutter_application/data/data.dart';
 import 'package:flutter_application/utils/navigator_support.dart';
 import 'package:get_it/get_it.dart';
 
+import '../home/project_management/project_handle/add_project_page.dart';
 import '../home/project_management/project_management_page.dart';
 import '../pages.dart';
 
@@ -37,6 +38,8 @@ class _MainNavigatorState extends State<MainNavigator> {
             return MaterialPageRoute(builder: (context) => const HomePage());
           case ProjectManagementPage.path:
             return MaterialPageRoute(builder: (context) => const ProjectManagementPage());
+          case AddProjectPage.path:
+            return MaterialPageRoute(builder: (context) => const AddProjectPage());
         }
         return null;
       },

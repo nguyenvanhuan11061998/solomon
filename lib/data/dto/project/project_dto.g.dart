@@ -7,12 +7,14 @@ part of 'project_dto.dart';
 // **************************************************************************
 
 ProjectDto _$ProjectDtoFromJson(Map<String, dynamic> json) => ProjectDto(
-      json['image'] as String?,
-      json['name'] as String?,
+      name: json['name'] as String?,
+      listClass: (json['listClass'] as List<dynamic>?)
+          ?.map((e) => ClassDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$ProjectDtoToJson(ProjectDto instance) =>
     <String, dynamic>{
-      'image': instance.image,
       'name': instance.name,
+      'listClass': instance.listClass,
     };

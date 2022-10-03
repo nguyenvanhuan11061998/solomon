@@ -1,7 +1,9 @@
 
 
 
+import '../class/class_model.dart';
+
 abstract class ProjectModel {
   String? get name;
-  String? get image;
+  List<ClassModel>? get listClass;
 }
