@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `SignIn`
+  /// `Sign in`
   String get sign_in {
     return Intl.message(
-      'SignIn',
+      'Sign in',
       name: 'sign_in',
       desc: '',
       args: [],
@@ -69,6 +69,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Back`
+  String get back {
+    return Intl.message(
+      'Back',
+      name: 'back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send`
+  String get send {
+    return Intl.message(
+      'Send',
+      name: 'send',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `company`
+  String get company {
+    return Intl.message(
+      'company',
+      name: 'company',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Purpose?`
+  String get purpose {
+    return Intl.message(
+      'Purpose?',
+      name: 'purpose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sample?`
+  String get sample {
+    return Intl.message(
+      'Sample?',
+      name: 'sample',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ID`
+  String get id {
+    return Intl.message(
+      'ID',
+      name: 'id',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User name`
+  String get user_name {
+    return Intl.message(
+      'User name',
+      name: 'user_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Guest`
+  String get guest {
+    return Intl.message(
+      'Guest',
+      name: 'guest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up`
+  String get sign_up {
+    return Intl.message(
+      'Sign up',
+      name: 'sign_up',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -77,6 +187,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'zh'),
     ];
   }
 

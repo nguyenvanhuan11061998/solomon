@@ -11,8 +11,8 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   # StateManagement
-  flutter_bloc:
-  tuple:
+  flutter_bloc: 8.1.1
+  tuple: 2.0.0
   freezed_annotation:
   # JsonParser
   json_annotation:
@@ -64,5 +64,32 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/
+    - assets/images/
+
+
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter/Inter-Black.ttf
+          weight: 900
+        - asset: assets/fonts/inter/Inter-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/inter/Inter-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/inter/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/inter/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/inter/Inter-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/inter/Inter-Light.ttf
+          weight: 300
+        - asset: assets/fonts/inter/Inter-ExtraLight.ttf
+          weight: 200
+
+
+
+
 flutter_intl:
   enabled: true

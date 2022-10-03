@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../generated/l10n.dart';
 
 class HomePage extends StatefulWidget {
+  static const String path = 'home_page';
+
   const HomePage({Key? key}) : super(key: key);
 
   @override

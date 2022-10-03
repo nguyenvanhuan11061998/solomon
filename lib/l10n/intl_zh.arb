@@ -1,0 +1,18 @@
+
+
+{
+  "sign_in": "Sign in",
+  "home_page": "Home Page",
+  "back": "Back",
+  "send": "Send",
+  "password": "Password",
+  "company": "company",
+  "purpose": "Purpose?",
+  "sample": "Sample?",
+  "id": "ID",
+  "user_name": "User name",
+  "password": "Password",
+  "guest": "Guest",
+  "login": "Login",
+  "sign_up": "Sign up"
+}
