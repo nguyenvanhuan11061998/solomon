@@ -1,6 +1,10 @@
 import 'dart:developer' as developer;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/lib.dart';
+import 'package:flutter_application/ui/blocs/project/project_bloc.dart';
+import 'package:flutter_application/ui/blocs/project/project_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../generated/l10n.dart';
 
@@ -14,6 +18,15 @@ class ProjectManagementPage extends StatefulWidget {
 }
 
 class _ProjectManagementPageState extends State<ProjectManagementPage> {
+  late ProjectBloc _bloc;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _bloc = ProjectBloc();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,59 +43,101 @@ class _ProjectManagementPageState extends State<ProjectManagementPage> {
           )
         ],
       ),
-      body: Column(
-        children: [
-          kSpacingHeight24,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'User name',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText1!
-                    .copyWith(color: Colors.red),
-              ),
-              SizedBox(
-                width: 89,
-                height: 44,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    S.current.add,
-                    style: Theme.of(context).textTheme.bodyText1,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: Column(
+          children: [
+            kSpacingHeight24,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'User name',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1!
+                      .copyWith(color: Colors.red),
+                ),
+                SizedBox(
+                  width: 89,
+                  height: 44,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      S.current.add,
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          kSpacingHeight16,
-          GridView.builder(
-              itemCount: 7,
-              shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 2 / 3,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
-              ),
-              itemBuilder: (context, index) => Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: ColorConstants.blackOpacity5,
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Project ${index + 1}',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyText1!
-                            .copyWith(color: Colors.red),
+              ],
+            ),
+            kSpacingHeight16,
+            Expanded(
+              child: BlocBuilder<ProjectBloc, ProjectState>(
+                bloc: _bloc,
+                builder: (context, state) {
+                  return state.when((projects) {
+                    return GridView.builder(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      itemCount: 7,
+                      shrinkWrap: true,
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 2 / 3,
+                        crossAxisSpacing: 12,
+                        mainAxisSpacing: 12,
                       ),
-                    ),
-                  ))
-        ],
+                      itemBuilder: (context, index) => InkWell(
+                        onTap: () {
+                          onSelectProject();
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: ColorConstants.blackOpacity10,
+                                ),
+                              ),
+                            ),
+                            kSpacingHeight10,
+                            Text(
+                              'Project ${index + 1}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(color: Colors.red),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                      loading: () => const Center(
+                            child: CupertinoActivityIndicator(),
+                          ),
+                      error: (error) => Center(
+                            child: Text(
+                              'Empty',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(color: Colors.red),
+                            ),
+                          ));
+                },
+              ),
+            )
+          ],
+        ),
       ),
     );
+  }
+
+  void onSelectProject() {
+    Navigator.of(context).pushNamed(HomePage.path);
   }
 }

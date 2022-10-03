@@ -1,10 +1,13 @@
 import 'dart:convert';
 import 'package:flutter_application/data/dto/authentication_dto.dart';
+import 'package:flutter_application/data/dto/project/project_dto.dart';
+import 'package:flutter_application/domain/entity/project/project_model.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalService {
   final String kKeyAuth = 'key_auth';
+  final String kKeyProject = 'key_project';
 
   //NOTE: List key not delete when user logout
   final List<String> keyExcludes = [];
@@ -38,6 +41,21 @@ class LocalService {
     keys.removeAll(keyExcludes);
     for (final key in keys) {
       await sharedPreferences.remove(key);
+    }
+  }
+
+  Future saveProject(ProjectDto? project) {
+    return sharedPreferences.setString(
+        kKeyProject, (project == null) ? '' : json.encode(project.toJson()));
+  }
+
+  ProjectModel? getLocalProject() {
+    if (!sharedPreferences.containsKey(kKeyProject) ||
+        (sharedPreferences.getString(kKeyProject) ?? '') == '') {
+      return null;
+    } else {
+      return ProjectDto.fromJson(
+          json.decode(sharedPreferences.getString(kKeyProject)!));
     }
   }
 }
