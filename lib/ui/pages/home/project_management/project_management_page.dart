@@ -5,7 +5,8 @@ import 'package:flutter_application/data/dto/project/project_dto.dart';
 import 'package:flutter_application/lib.dart';
 import 'package:flutter_application/ui/blocs/project/project_bloc.dart';
 import 'package:flutter_application/ui/blocs/project/project_state.dart';
-import 'package:flutter_application/ui/pages/home/project_management/project_handle/add_project_page.dart';
+import 'package:flutter_application/ui/pages/home/project_management/project_handle/create_new_project/add_project_page.dart';
+import 'package:flutter_application/ui/pages/home/project_management/project_handle/edit_project/edit_project_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../generated/l10n.dart';
@@ -97,7 +98,7 @@ class _ProjectManagementPageState extends State<ProjectManagementPage> {
                       ),
                       itemBuilder: (context, index) => InkWell(
                         onTap: () {
-                          onSelectProject();
+                          onSelectProject(projects[index] as ProjectDto);
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -145,7 +146,7 @@ class _ProjectManagementPageState extends State<ProjectManagementPage> {
     );
   }
 
-  void onSelectProject() {
-    Navigator.of(context).pushNamed(HomePage.path);
+  void onSelectProject(ProjectDto projectDto) {
+    Navigator.of(context).pushNamed(ProjectEditPage.path, arguments: projectDto);
   }
 }

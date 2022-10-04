@@ -5,7 +5,7 @@ import 'package:flutter_application/data/dto/project/project_dto.dart';
 import 'package:flutter_application/lib.dart';
 import 'package:flutter_application/ui/pages/home/project_management/widget/item_class_widget.dart';
 
-import '../../../../../generated/l10n.dart';
+import '../../../../../../generated/l10n.dart';
 
 class AddProjectPage extends StatefulWidget {
   static const path = '/add_new_project_page';
@@ -46,9 +46,6 @@ class _AddProjectPageState extends State<AddProjectPage> {
             ),
           ),
         ),
-        title:
-            Text('New project', style: Theme.of(context).textTheme.bodyText1),
-        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
